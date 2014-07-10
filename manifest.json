@@ -1,0 +1,18 @@
+{
+	"manifest_version":2,
+	"name":"ars auto selection",
+	"version":"1.0",
+	"description":"ars auto select for qzone distribution",
+	"browser_action":{
+		"default_icon":"ars.png"		
+	},
+	"content_scripts":[
+		{
+			"matches":["http://*/*"],
+			"js":["jquery-1.7.2.min.js","json2.js","url.js"]
+		}
+	],
+	"permissions":[
+		"tabs", "http://*/*"
+	]
+}
