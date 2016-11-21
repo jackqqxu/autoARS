@@ -1,18 +1,28 @@
 {
-	"manifest_version":2,
+  "manifest_version":2, //https://developer.chrome.com/extensions/manifest
 	"name":"ars auto selection",
 	"version":"1.0",
 	"description":"ars auto select for qzone distribution",
-	"browser_action":{
-		"default_icon":"ars.png"		
+	"page_action":{
+		"default_icon":"ars.png",
+        "default_popup": "popup.html",
+        "default_title": "Click autoARS~"
 	},
+    "icons" : {
+      "16" : "ars.png",
+      "48" : "ars.png",
+      "128" : "ars.png"
+    },
+    "background": {
+      "persistent": false,
+      "scripts": ["background.js"]
+    },
 	"content_scripts":[
 		{
-			"matches":["http://*/*"],
-			"js":["jquery-1.7.2.min.js","json2.js","url.js"]
+			"matches":["http://ars.sng.local/*"],
+			"js":["jquery-2.1.1.min.js","util.js", "content_scripts.js"],
+          "run_at":     "document_idle",
+          "all_frames": false
 		}
-	],
-	"permissions":[
-		"tabs", "http://*/*"
 	]
 }

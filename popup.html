@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+	<script type="text/javascript" src="./jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+<body>
+<h3 style="font-weight:bold; text-align:center;">DOM Info</h3>
+<table border="1" cellpadding="3" style="border-collapse:collapse; width:500px;" id="items">
+    <tr id="title">
+        <td nowrap>全选:</td>
+        <td style="text-align: center;"><span>ars描述</span></td>
+        <td style="text-align: center;"><span>操作</span></td>
+    </tr>
+    <!--<tr>-->
+        <!--<td nowrap>Number of input elements:</td>-->
+        <!--<td align="right"><span id="inputs">N/A</span></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td nowrap>Number of button elements:</td>-->
+        <!--<td align="right"><span id="buttons">N/A</span></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td nowrap>localStorage length:</td>-->
+        <!--<td align="right"><span id="localStorage">N/A</span></td>-->
+    <!--</tr>-->
+
+</table>
+
+<div id="netType">
+    <input type="checkbox" id="testNet" value="1" checked/><label for="testNet">测试环境</label>
+    <input type="checkbox" id="preNet" value="2" disabled/><label for="preNet">预发布</label>
+    <input type="checkbox" id="outNet" value="3" disabled/><label for="outNet">外网</label>
+    <input type="checkbox" id="autoClose" value="4" disabled/><label for="autoClose">自动关单</label>
+</div>
+<button id="import">导入到ars系统</button>
+</body>
+</html>
