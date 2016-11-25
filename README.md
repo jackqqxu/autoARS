@@ -5,7 +5,7 @@ auto select the options the submit the file distribution system
 
 每次发布文件的时候，有没有觉得经常要重复点击很多次同样的内容？
 今天抽时间完成了ars自动化发布chrome插件；用法说明：
-        a. 用户点击免测版本发布：http://ars.sng.local/Rel_FileTestRequest.htm?noTest=1&selectMenuId=59， 
+        a. 用户点击免测版本发布， 
         b. 启动ars auto selection chrome 插件，启动后会在用户第一次点击后将用户输入的信息写入到localStorage；
             第二次进入同样的页面，会自动填充上次用户输入的信息；
             
@@ -69,8 +69,8 @@ auto select the options the submit the file distribution system
 ```
 
 > 2016-11-8 autoARS的基本流程：
-* 1. 只要是打开ars相关的页面，如果启动autoARS，会在popup.js中发送chrome.tabs.sendMessage，参数：{from: 'popup', subject: 'initLocalStorageArsData'}，通知相应的
-        ars页面，ars页面收到通知后，会将localStorage.getItem('autoARSData')返回给popup.js，在popup.html弹出页面初始化所有的ars单据列表；
+* 1. 只要是打开相关的页面，如果启动autoARS，会在popup.js中发送chrome.tabs.sendMessage，参数：{from: 'popup', subject: 'initLocalStorageArsData'}，通知相应的
+        页面，页面收到通知后，会将localStorage.getItem('autoARSData')返回给popup.js，在popup.html弹出页面初始化所有的ars单据列表；
         
 * 2. 如果进入的是ars系统首页，没启动autoARS的发布功能；用户自己填写了部分数据，可以保存导入到autoARS；
      如果启动了autoARS的发布功能，则会定义localStorage.setItem('needAutoInsert', ...)；保存了用户需要处理的数据，包括网络发布的环境，和form的数据；
@@ -78,12 +78,5 @@ auto select the options the submit the file distribution system
 * 3. 如果进入的是ars发布页面，启动autoARS，选择某个item，点击导入，会在popup.js中发送chrome.tabs.sendMessage，参数：{from: 'popup', subject: 'autoInsertForm', data : JSON.stringify(data)}
         在ars页面会收到data，将用户选择的发布单据数据写入form页面；
 
-* 4. 进入到发布页面，默认会自动点击第一条记录，且只会点击一次，节省一次用户点击，自动会发布到测试环境；是否需要发布到预发布？
+* 4. 进入到发布页面，支持了各种排序合并处理；
 
-
-            
-有问题可以和我联系：qq:706814758 e-mail: jackqqxu@tencent.com
-
-
-@todo:
-自动提交这个，容易出现重复提交的情况；没我的指令，怎么可以这样；
